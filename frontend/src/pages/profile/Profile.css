@@ -1,0 +1,76 @@
+:root {
+  --primary-color: #4a90e2;
+  --secondary-color: #f5f7fa;
+  --text-color: #333;
+  --border-radius: 8px;
+  --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.profile-container {
+  max-width: 500px;
+  margin: 40px auto;
+  background-color: var(--secondary-color);
+  padding: 2rem;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: var(--text-color);
+  transition: transform 0.3s ease;
+}
+
+.profile-container:hover {
+  transform: translateY(-5px);
+}
+
+.profile-container h2 {
+  color: var(--primary-color);
+  margin-bottom: 1.5rem;
+  font-size: 1.8rem;
+  border-bottom: 2px solid var(--primary-color);
+  padding-bottom: 0.5rem;
+}
+
+.profile-container p {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin: 0.5rem 0;
+}
+
+.profile-container strong {
+  color: var(--primary-color);
+}
+
+@media (max-width: 600px) {
+  .profile-container {
+    margin: 20px;
+    padding: 1.5rem;
+  }
+
+  .profile-container h2 {
+    font-size: 1.5rem;
+  }
+
+  .profile-container p {
+    font-size: 0.95rem;
+  }
+}
+/* Add to Profile.css */
+.profile-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.edit-button {
+  background-color: #6200ee;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.edit-button:hover {
+  background-color: #3700b3;
+}
