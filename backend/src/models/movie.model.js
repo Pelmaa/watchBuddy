@@ -27,6 +27,11 @@ const movieSchema = new mongoose.Schema({
     default: "Other",
   },
   rating: Number,
+  poster: {
+    type: String,
+    default: 'default-poster.jpg',
+   
+  },
   userId: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "User",

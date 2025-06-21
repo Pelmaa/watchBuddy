@@ -28,13 +28,15 @@ const getMovieById = async (req, res) => {
 
 const addMovie = async (req, res) => {
   const user = req.user;
-  const newMovie = req.body;
 
-  if (!newMovie) {
+  const { name, year, genre, rating, poster, status } = req.body;
+ 
+
+  if (!req.body) {
     return res.status(400).json({ message: `Body cannot be empty` });
   }
 
-  const keys = Object.keys(newMovie);
+  const keys = Object.keys({ name, year, genre, rating, poster, status });
   const requiredKeys = ["name", "year", "genre","rating"];
   const missingKeys = requiredKeys.filter((key) => !keys.includes(key));
 
@@ -44,20 +46,22 @@ const addMovie = async (req, res) => {
     });
   }
 
-  const createdMovie = await movieService.addMovie(newMovie, user._id);
+  const createdMovie = await movieService.addMovie({ name, year, genre, rating, poster, status }, user._id);
   res.status(201).json({ message: "Movie created", movie: createdMovie });
 };
 
 const updateMovieById = async (req, res) => {
   const user = req.user;
   const id = req.params.id;
-  const newMovie = req.body;
+   
+  const { name, year, genre, rating, poster, status } = req.body;
 
-  if (!newMovie) {
+
+  if (!req.body) {
     return res.status(400).json({ message: `Body cannot be empty` });
   }
 
-  const keys = Object.keys(newMovie);
+  const keys = Object.keys({ name, year, genre, rating, poster, status });
   const requiredKeys = ["name", "year", "genre","rating"];
   const missingKeys = requiredKeys.filter((key) => !keys.includes(key));
 
@@ -69,7 +73,7 @@ const updateMovieById = async (req, res) => {
 
   const updatedMovie = await movieService.updateMovieById(
     id,
-    newMovie,
+    { name, year, genre, rating, poster, status },
     user._id
   );
   if (updatedMovie) {
