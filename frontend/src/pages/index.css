@@ -408,7 +408,7 @@ body {
 
 .movie-poster {
   position: relative;
-  height: 180px;
+  height: 230px;
   overflow: hidden;
 }
 
@@ -621,3 +621,290 @@ body {
   background-color: #fc5c65;
 }
 
+/* Dialog Styles - Improved */
+.dialog-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.75); /* slightly darker for better contrast */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  backdrop-filter: blur(4px); /* subtle blur behind dialog */
+}
+
+.dialog {
+  background: #1a1a1a;
+  border-radius: 0.75rem;
+  padding: 2.5rem 2rem;
+  width: 90%;
+  max-width: 480px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.6);
+  color: white;
+  font-family: inherit;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  will-change: transform, opacity;
+}
+
+.dialog h2 {
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  font-size: 1.8rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: #e0e0e0;
+}
+
+.form-group {
+  margin-bottom: 1.25rem;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 0.375rem;
+  color: white;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: #667eea;
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.form-group label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  font-size: 0.95rem;
+  user-select: none;
+  color: #ccc;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin-top: 1.75rem;
+}
+
+.form-actions button {
+  padding: 0.6rem 1.8rem;
+  border: none;
+  border-radius: 0.375rem;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: background-color 0.3s ease, opacity 0.3s ease;
+}
+
+.form-actions button[type="button"] {
+  background: rgba(255, 255, 255, 0.12);
+  color: white;
+}
+
+.form-actions button[type="button"]:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.form-actions button[type="submit"] {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.6);
+}
+
+.form-actions button[type="submit"]:hover {
+  opacity: 0.9;
+  box-shadow: 0 6px 18px rgba(102, 126, 234, 0.8);
+}
+.movie-meta {
+  display: flex;
+  flex-direction: column; /* stack lines vertically */
+  gap: 0.4rem;
+  margin-bottom: 1rem;
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+/* First line: single item */
+.movie-meta .line-one {
+  /* make it block, full width */
+  padding: 0.3rem 0.6rem;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 0.4rem;
+  max-width: max-content;
+  user-select: none;
+}
+
+/* Second line: flex container with two items */
+.movie-meta .line-two {
+  display: flex;
+  gap: 0.6rem;
+}
+
+.movie-meta .line-two span {
+  padding: 0.3rem 0.6rem;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 0.4rem;
+  user-select: none;
+  max-width: max-content;
+}
+.movie-card {
+  position: relative;
+  /* existing styles... */
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 0.75rem;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.movie-actions {
+  position: absolute;
+  top: 1.3rem;
+  right: 0.5rem;
+  display: flex;
+  gap: 0.5rem;
+  z-index: 10;
+}
+
+.action-btn {
+  background: rgba(255, 255, 255, 0.15);
+  border: none;
+  border-radius: 50%;
+  padding: 0.4rem;
+  color: white;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.action-btn:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.action-btn svg {
+  width: 18px;
+  height: 18px;
+}
+.update-btn svg {
+  color: #3b82f6;
+}
+
+.delete-btn svg {
+  color: #ef4444;
+}
+
+/* ✅ Responsive Fixes */
+@media (max-width: 1024px) {
+  .main-content {
+    padding: 4rem 2rem;
+  }
+
+  .auth-features {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .feature-card {
+    width: 100%;
+    max-width: 90%;
+  }
+
+  .search-wrapper {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1rem;
+    padding: 3rem;
+    position: static;
+  }
+
+  .search-controls {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .filter-controls {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .movies-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .main-content {
+    padding: 3rem 1rem;
+  }
+
+  .app-title h1 {
+    font-size: 2rem;
+  }
+
+  .movie-meta .line-two {
+    flex-direction: column;
+  }
+
+  .movies-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .feature-icon {
+    width: 50px;
+    height: 50px;
+    font-size: 1.2rem;
+  }
+
+  .auth-content h2 {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .login-button,
+  .add-movie-btn,
+  .meet-team-btn {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+  }
+
+  .feature-card {
+    width: 95%;
+  }
+
+  .search-bar input {
+    font-size: 0.9rem;
+    padding-left: 2rem;
+  }
+
+  .search-icon {
+    left: 15rem !important;
+    top: 1.5rem !important;
+  }
+
+  .form-actions {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .form-actions button {
+    width: 100%;
+  }
+}

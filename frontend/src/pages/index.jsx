@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Plus, Search } from 'lucide-react';
+import { Edit, Plus, Search, Trash2 } from 'lucide-react';
 import { addMovie, deleteMovie, getAllMovies, updateMovie } from "../api/api";
 import { useAuth } from "../context/AuthContext";
 import "./index.css";
@@ -100,14 +100,15 @@ const Home = () => {
   }
 
   if (!isLoggedIn) {
-    return (
+    return (<div>
+      <Navbar/>
       <div className="auth-container">
         <div className="auth-background" />
         <div className="auth-overlay" />
         
         <div className="auth-content">
           <div className="app-header">
-          <Navbar/>
+         
           </div>
 
           <div className="journey-section">
@@ -157,6 +158,8 @@ const Home = () => {
         </div>
         
       </div>
+    </div>
+      
     );
   }
 
@@ -223,26 +226,30 @@ return (
                 
                 <div className="movie-details">
                   <h3 className="movie-title">{movie.name}</h3>
-                  <div className="movie-meta">
-                    <span>{movie.year}</span>
-                    <span>{movie.rating}/10</span>
-                    <span>{movie.genre}</span>
-                  </div>
-                  
+                 <div className="movie-meta">
+  <span className="line-one">{movie.rating}/10</span>
+  <div className="line-two">
+    <span>{movie.genre}</span>
+    <span>{movie.year}</span>
+  </div>
+</div>
+
                   <div className="movie-actions">
-                    <button 
-                      className="action-btn update-btn"
-                      onClick={() => handleUpdate(movie)}
-                    >
-                      Update
-                    </button>
-                    <button 
-                      className="action-btn delete-btn"
-                      onClick={() => handleDelete(movie._id)}
-                    >
-                      Delete
-                    </button>
-                  </div>
+  <button
+    className="action-btn update-btn"
+    onClick={() => handleUpdate(movie)}
+    aria-label="Edit"
+  >
+    <Edit />
+  </button>
+  <button
+    className="action-btn delete-btn"
+    onClick={() => handleDelete(movie._id)}
+    aria-label="Delete"
+  >
+    <Trash2 />
+  </button>
+</div>
                 </div>
               </div>
             ))

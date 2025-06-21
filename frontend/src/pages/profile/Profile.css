@@ -74,3 +74,52 @@
 .edit-button:hover {
   background-color: #3700b3;
 }
+.profile-container {
+  display: flex;
+  justify-content: center;
+  padding: 3rem 1rem;
+}
+
+.profile-card {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 1rem;
+  padding: 2rem;
+  color: black;
+  width: 100%;
+  max-width: 500px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+}
+
+.profile-card h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.profile-card p, .profile-card li {
+  font-size: 1rem;
+  margin: 0.5rem 0;
+}
+
+.profile-card ul {
+  padding-left: 1.2rem;
+  list-style: disc;
+}
+
+.profile-card .note {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.7);
+  margin-top: 1rem;
+  text-align: center;
+}
+
+@media (max-width: 600px) {
+  .profile-card {
+    padding: 1.5rem;
+  }
+
+  .profile-card h2 {
+    font-size: 1.5rem;
+  }
+}
