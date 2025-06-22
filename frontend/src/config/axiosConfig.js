@@ -1,7 +1,7 @@
 import _axios from "axios";
 
 const axios = _axios.create({
-  baseURL: import.meta.env.VITE_API_BASE_URL,
+  baseURL: "http://localhost:3000/" || "https://watchbuddy-vgpp.onrender.com",
   headers: { "Content-Type": "application/json" },
 });
 axios.interceptors.request.use(
