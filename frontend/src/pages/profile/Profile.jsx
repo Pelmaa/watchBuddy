@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import Navbar from "../../components/navbar/Navbar";
 import { useAuth } from "../../context/AuthContext";
 import { getAllMovies } from "../../api/api";
-import "./profile.css";
+import "./Profile.css";
 
 const Profile = () => {
   const { user, isLoading } = useAuth();

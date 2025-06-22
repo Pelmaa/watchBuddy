@@ -1,6 +1,6 @@
 
 import Navbar from '../../components/navbar/Navbar';
-import './team.css';
+import './Team.css';
 
 const teamMembers = [
   {
