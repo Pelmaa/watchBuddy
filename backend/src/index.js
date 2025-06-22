@@ -3,7 +3,7 @@ const cors = require("cors");
 const connectMongoDB = require("./db/mongo.db");
 const authRoutes = require("./routes/auth.route");
 const moviesRoutes = require("./routes/movie.route");
-
+const { frontendUrl } = require("./config");
 
 const app = express();
 connectMongoDB();
@@ -13,7 +13,7 @@ const PORT = 3000;
 app.use(express.json());
 app.use(
   cors({
-  
+    origin: frontendUrl,
     credentials: true,
   })
 );
