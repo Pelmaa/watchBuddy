@@ -1,7 +1,7 @@
 import _axios from "axios";
 
 const axios = _axios.create({
-  baseURL: "http://localhost:3000/",
+  baseURL: import.meta.env.VITE_API_BASE_URL,
   headers: { "Content-Type": "application/json" },
 });
 axios.interceptors.request.use(
