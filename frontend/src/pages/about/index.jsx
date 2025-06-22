@@ -1,7 +1,7 @@
 import Navbar from "../../components/navbar/Navbar";
 import Team from "./Team";
 
-import "./Team.css";
+import "./team.css";
 
 const About = () => {
   return (<div><Navbar/>
