@@ -1,9 +1,10 @@
 import _axios from "axios";
 
 const axios = _axios.create({
-  baseURL: "https://watchbuddy-vgpp.onrender.com",
+  baseURL: import.meta.env.VITE_API_BASE_URL,
   headers: { "Content-Type": "application/json" },
 });
+
 axios.interceptors.request.use(
   (config) => {
     const token = localStorage.getItem("chung-token");
@@ -14,4 +15,5 @@ axios.interceptors.request.use(
   },
   (error) => Promise.reject(error)
 );
+
 export default axios;
