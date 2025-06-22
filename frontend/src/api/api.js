@@ -6,6 +6,9 @@ const registerUser = async (formData) => {
 const loginUser = async (formData) => {
   return axios.post("/auth/signin", formData);
 };
+const getloginUser = async () => {
+  return axios.get("/auth/loggedin-user");
+};
 
 const getAllMovies = () => {
   return axios.get("/movies/");
@@ -30,4 +33,5 @@ export {
   addMovie,
   deleteMovie,
   updateMovie,
+  getloginUser
 };

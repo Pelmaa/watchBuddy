@@ -1,5 +1,6 @@
 import axios from "axios";
 import { createContext, useContext, useEffect, useState } from "react";
+import { getloginUser } from "../api/api";
 
 const AuthContext = createContext();
 
@@ -22,8 +23,7 @@ export const AuthProvider = ({ children }) => {
         return;
       }
 
-      const response = await axios.get(
-        "http://localhost:3000/auth/loggedin-user",
+      const response = await getloginUser(
         {
           headers: {
             Authorization: `Bearer ${token}`,
